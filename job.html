@@ -24,53 +24,43 @@
 
     d3.csv("JOB_CAPABILITY.csv", function(data) {
 
-      var sumstat = d3.nest()
-    .key(function(d) { return d.SCORE;})
-    .entries(data);
-    
-var mygroups = ["MAKE DIAGNOSES", "NEWS STORIES", "HIRING DECISIONS", "SONGWRITING", "LOAN DELEGATION", "PAROLE DECISIONS", "DRIVING", "CUSTOMER SERVICE"] // list of group names
-  var mygroup = [1,2,3,4,5,6,7,8] // list of group names
-  var stackedData = d3.stack()
-    .keys(mygroup)
-    .value(function(d, key){
-      return d.values[key].n
-    })
-    (sumstat)
+  var keys = data.columns.slice(1)
 
-    //X AXIS
-    var x = d3.scaleLinear()
-    .domain(d3.extent(data, function(d) { return d.year; }))
+  //X AXIS
+   var x = d3.scaleLinear()
+    .domain(d3.extent(data, function(d) { return d.SCORE; }))
     .range([ 0, width ]);
   svg.append("g")
     .attr("transform", "translate(0," + height + ")")
-    .call(d3.axisBottom(x).ticks(5));
-    
+    .call(d3.axisBottom(x).ticks(2));
+
     //Y AXIS
-      var y = d3.scaleLinear()
-    .domain([0, d3.max(data, function(d) { return +d.n; })*1.2])
+     var y = d3.scaleLinear()
+    .domain([0, 20000])
     .range([ height, 0 ]);
   svg.append("g")
     .call(d3.axisLeft(y));
 
-    //COLORS
-
      var color = d3.scaleOrdinal()
-    .domain(mygroups)
-    .range(['#e41a1c','#377eb8','#4daf4a','#984ea3','#ff7f00','#ffff33','#a65628','#f781bf','#999999'])
+    .domain(keys)
+    .range(['#e41a1c','#377eb8','#4daf4a','#984ea3','#ff7f00','#ffff33','#a65628','#f781bf'])
 
-    //DISPLAY
+    var stackedData = d3.stack()
+    .keys(keys)
+    (data)
+    //console.log("This is the stack result: ", stackedData)
 
-      svg
+   svg
     .selectAll("mylayers")
     .data(stackedData)
     .enter()
     .append("path")
-      .style("fill", function(d) { name = mygroups[d.key-1] ;  return color(name); })
+      .style("fill", function(d) { console.log(d.key) ; return color(d.key); })
       .attr("d", d3.area()
-        .x(function(d, i) { return x(d.data.key); })
+        .x(function(d, i) { return x(d.data.SCORE); })
         .y0(function(d) { return y(d[0]); })
         .y1(function(d) { return y(d[1]); })
     )
 
-})
+}) 
 </script>
