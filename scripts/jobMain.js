@@ -1,18 +1,4 @@
 
-const job_main_tooltip = d3.select("#job_main_tooltip");
-
-function showJob_main_tooltip(event, html){
-    job_main_tooltip
-        .style("opacity",1)
-        .html(html)
-        .style("left",(event.pageX+10)+"px")
-        .style("top",(event.pageY-20)+"px");
-}
-
-function hideJob_main_tooltip(){
-    job_main_tooltip.style("opacity",0);
-}
-
 var margin_job_main = {top: 60, right: 50, bottom: -40, left: -100},
     width_job_main = 500 - margin_job_main.left - margin_job_main.right,
     height_job_main = 600 - margin_job_main.top - margin_job_main.bottom;
@@ -25,7 +11,7 @@ var margin_job_main = {top: 60, right: 50, bottom: -40, left: -100},
     .attr("transform",
           "translate(" + margin_job_main.left + "," + margin_job_main.top + ")");
 
-    d3.csv("data/JOB_CAPABILITY.csv", function(data) {
+    d3.csv("https://raw.githubusercontent.com/Ren0ki/AI_IMPACT/main/data/JOB_CAPABILITY.csv", function(data) {
 
   var keys = data.columns.slice(1)
 

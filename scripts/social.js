@@ -1,17 +1,3 @@
-const social_tooltip = d3.select("#social_tooltip");
-
-function showSocial_tooltip(event, html){
-    social_tooltip
-        .style("opacity",1)
-        .html(html)
-        .style("left",(event.pageX+10)+"px")
-        .style("top",(event.pageY-20)+"px");
-}
-
-function hideSocial_tooltip(){
-    social_tooltip.style("opacity",0);
-}
-
 var margin_social = {top: 30, right: 30, bottom: 30, left: 0},
     width_social = 400 - margin_social.left - margin_social.right,
     height_social = 180 - margin_social.top - margin_social.bottom;
@@ -26,7 +12,7 @@ var svg_social = d3.select("#social_impact")
           "translate(" + margin_social.left + "," + margin_social.top + ")");
 
 //Read the data
-d3.csv("data/SOCIAL_IMPACT2.csv", function(data) {
+d3.csv("https://raw.githubusercontent.com/Ren0ki/AI_IMPACT/main/data/SOCIAL_IMPACT2.csv", function(data) {
 
   //GROUPED DATA
   var sumstat = d3.nest() 

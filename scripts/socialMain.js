@@ -12,7 +12,7 @@ var svg_social_main = d3.select("#social_main_impact")
           "translate(" + margin_social_main.left + "," + margin_social_main.top + ")");
 
 //Read the data
-d3.csv("data/SOCIAL_IMPACT2.csv", function(data) {
+d3.csv("https://raw.githubusercontent.com/Ren0ki/AI_IMPACT/main/data/SOCIAL_IMPACT2.csv", function(data) {
 
   //GROUPED DATA
   var sumstat = d3.nest() 

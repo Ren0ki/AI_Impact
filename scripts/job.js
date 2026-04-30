@@ -10,7 +10,7 @@ var margin_job = {top: 0, right: -160, bottom: -30, left: 150},
     .attr("transform",
           "translate(" + margin_job.left + "," + margin_job.top + ")");
 
-    d3.csv("data/JOB_CAPABILITY.csv", function(data) {
+    d3.csv("https://raw.githubusercontent.com/Ren0ki/AI_IMPACT/main/data/JOB_CAPABILITY.csv", function(data) {
 
   var keys = data.columns.slice(1)
 
