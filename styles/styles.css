@@ -29,7 +29,6 @@
 }
 
 .page1{
-        height: 1300px;
         background: url("../assets/bg.png");
         background-repeat: no-repeat;
         background-size: 1080px;
@@ -52,8 +51,7 @@
 
     .page2{
       
-        height: 1300px;
-        justify-content:center;
+         justify-content:center;
         align-items: center;
         display: flex;
 
@@ -82,7 +80,7 @@
     }
 
 .page3{
-    height: 1300px;
+
     background-color: black;
     height: 1300px;
     color: white;
@@ -122,7 +120,7 @@
 }
 
 .page4{
-height: 1300px;
+
  height: 1000px;
     color: black;
       justify-content:center;
@@ -167,7 +165,7 @@ height: 1300px;
 
 }
 .page5{
-    height: 1300px;
+
     background-color: #214281;
     height: 1000px;
     color: white;
@@ -207,7 +205,6 @@ height: 1300px;
 }
 
 .page6{
-    height: 1300px;
     height: 1000px;
     color: black;
     justify-content:center;
@@ -261,9 +258,9 @@ Retrieved 2026-04-29, License - CC BY-SA 3.0
     width:1800;
 }
 
-/* html{
+html{
     scroll-behavior: smooth;
-} */
+}
 
 svg{
   overflow: visible;

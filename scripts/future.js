@@ -24,7 +24,7 @@ var margin_future = {top: -30, right: 60, bottom: 30, left: 0},
     .attr("transform",
           "translate(" + margin_future.left + "," + margin_future.top + ")");
 
-  d3.csv("../data/FUTURE_IMPACT.csv", function(data) {      
+  d3.csv("https://raw.githubusercontent.com/Ren0ki/AI_IMPACT/main/data/FUTURE_IMPACT.csv", function(data) {      
     
     var sumstat = d3.nest() 
     .key(function(d) { return d.CATEGORY;})
