@@ -39,7 +39,7 @@
         align-items : center;
         justify-content:center;
         align-items: center;
-        height: 1300px;
+        height: 1100px;
 
         h1{
             display: flex;
@@ -50,7 +50,7 @@
     }
 
     .page2{
-        height: 1300px;
+        height: 1100px;
          justify-content:center;
         align-items: center;
         display: flex;
@@ -80,9 +80,8 @@
     }
 
 .page3{
-    height: 1300px;
+    height: 1100px;
     background-color: black;
-    height: 1300px;
     color: white;
 
       justify-content:center;
@@ -120,7 +119,7 @@
 }
 
 .page4{
-height: 1300px;
+height: 1100px;
 color: black;
 justify-content:center;
 align-items: center;
@@ -164,7 +163,7 @@ display: flex;
 
 }
 .page5{
-    height: 1300px;
+    height: 1100px;
     background-color: #214281;
     color: white;
     justify-content:center;
@@ -203,7 +202,7 @@ display: flex;
 }
 
 .page6{
-    height: 1300px;
+    height: 1100px;
     color: black;
     justify-content:center;
     align-items: center;
