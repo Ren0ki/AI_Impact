@@ -1,6 +1,6 @@
 // set the dimensions and margin_demographics of the graph
-var margin_demographic = {top: 270, right: 30, bottom: -60, left: -40},
-    width_demographic = 500 - margin_demographic.left - margin_demographic.right,
+var margin_demographic = {top: 270, right: 100, bottom: -60, left: -200},
+    width_demographic = 600 - margin_demographic.left - margin_demographic.right,
     height_demographic = 300 - margin_demographic.top - margin_demographic.bottom;
 
 // append the svg object to the body of the page
@@ -101,7 +101,7 @@ d3.csv("data/DEMOGRAPHIC_CONSIDERATION.CSV", function(data) {
 
         // LEGEND
   var demographic_legend = svg_demographic.append("g")
-    .attr("transform", "translate(" + (width_demographic - 530) + ",-230)");
+    .attr("transform", "translate(" + (width_demographic - 670) + ",-240)");
 
   demographic_legend.selectAll("g")
     .data(subgroups)

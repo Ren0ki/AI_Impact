@@ -77,7 +77,7 @@ d3.csv("data/SOCIAL_IMPACT2.csv", function(data) {
     .data(res)
     .enter()
     .append("g")
-      .attr("transform", function(d, i) { return "translate(0," + (i * 20) + ")"; })
+    .attr("transform", function(d, i) { return "translate(0," + (i * 20) + ")"; })
     .call(function(g) {
       g.append("rect")
         .attr("x", 0)
