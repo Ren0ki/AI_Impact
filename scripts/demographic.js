@@ -13,7 +13,7 @@ var svg_demographic = d3.select("#demographic")
           "translate(" + margin_demographic.left + "," + margin_demographic.top + ")");
 
 // Parse the Data
-d3.csv("../data/DEMOGRAPHIC_CONSIDERATION.CSV", function(data) {
+d3.csv("../data/DEMOGRAPHIC_CONSIDERATION.csv", function(data) {
 
   // List of subgroups = header of the csv files = soil condition here
   var subgroups = data.columns.slice(1)
