@@ -1,16 +1,3 @@
-  const future_tooltip = d3.select("#future_tooltip");
-
-function showFuture_tooltip(event, html){
-    future_tooltip
-        .style("opacity",1)
-        .html(html)
-        .style("left",(event.pageX+10)+"px")
-        .style("top",(event.pageY-20)+"px");
-}
-
-function hideFuture_tooltip(){
-    future_tooltip.style("opacity",0);
-}
 
 var margin_future = {top: -30, right: 60, bottom: 30, left: 0},
     width_future = 400 - margin_future.left - margin_future.right,
