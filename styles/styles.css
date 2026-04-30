@@ -82,7 +82,7 @@
 .page3{
 
     background-color: black;
-    height: 1000px;
+    height: 1300px;
     color: white;
 
       justify-content:center;
@@ -110,6 +110,11 @@
         grid-template-columns: 1fr 2fr;
         gap: 10%;
         padding: 10px;
+}
+
+.card{
+  width: 700px;
+  height: 600px;
 }
 
 }
@@ -153,11 +158,16 @@
     margin-right: 10%;
 }
 
+.card{
+  width: 700px;
+  height: 700px;
+}
+
 }
 .page5{
 
     background-color: #214281;
-    height: 1000px;
+    height: 1300px;
     color: white;
     justify-content:center;
     align-items: center;
@@ -187,6 +197,10 @@
   grid-area: content;
   padding-left: 10%;
 }
+
+.card{
+  width: 700px;
+  height: 600px;}
 
 }
 
@@ -218,6 +232,10 @@
   padding-top: 10%;
 }
 
+.card{
+  margin-left: -1px;
+}
+
 }
 
 button{
@@ -239,10 +257,10 @@ Retrieved 2026-04-29, License - CC BY-SA 3.0
     margin-right:auto;
     width:1800;
 }
-
+/* 
 html{
     scroll-behavior: smooth;
-}
+} */
 
 svg{
   overflow: visible;

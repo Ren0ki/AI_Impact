@@ -1,28 +1,29 @@
-const job_tooltip = d3.select("#job_tooltip");
 
-function showJob_tooltip(event, html){
-    job_tooltip
+const job_main_tooltip = d3.select("#job_main_tooltip");
+
+function showJob_main_tooltip(event, html){
+    job_main_tooltip
         .style("opacity",1)
         .html(html)
         .style("left",(event.pageX+10)+"px")
         .style("top",(event.pageY-20)+"px");
 }
 
-function hideJob_tooltip(){
-    job_tooltip.style("opacity",0);
+function hideJob_main_tooltip(){
+    job_main_tooltip.style("opacity",0);
 }
 
-var margin_job = {top: 0, right: -160, bottom: -30, left: 150},
-    width_job = 200 - margin_job.left - margin_job.right,
-    height_job = 130 - margin_job.top - margin_job.bottom;
+var margin_job_main = {top: 60, right: 50, bottom: -40, left: -100},
+    width_job_main = 500 - margin_job_main.left - margin_job_main.right,
+    height_job_main = 600 - margin_job_main.top - margin_job_main.bottom;
 
-  var svg_job = d3.select("#job_capability")
+  var svg_job_main = d3.select("#job_main_capability")
   .append("svg")
-    .attr("width", width_job + margin_job.left + margin_job.right)
-    .attr("height", height_job + margin_job.top + margin_job.bottom)
+    .attr("width", width_job_main + margin_job_main.left + margin_job_main.right)
+    .attr("height", height_job_main + margin_job_main.top + margin_job_main.bottom)
   .append("g")
     .attr("transform",
-          "translate(" + margin_job.left + "," + margin_job.top + ")");
+          "translate(" + margin_job_main.left + "," + margin_job_main.top + ")");
 
     d3.csv("data/JOB_CAPABILITY.csv", function(data) {
 
@@ -31,16 +32,16 @@ var margin_job = {top: 0, right: -160, bottom: -30, left: 150},
   //X AXIS
    var x = d3.scaleLinear()
     .domain(d3.extent(data, function(d) { return d.SCORE; }))
-    .range([ 0, width_job ]);
-  svg_job.append("g")
-    .attr("transform", "translate(0," + height_job + ")")
+    .range([ 0, width_job_main ]);
+  svg_job_main.append("g")
+    .attr("transform", "translate(0," + height_job_main + ")")
     .call(d3.axisBottom(x).ticks(2));
 
     //Y AXIS
      var y = d3.scaleLinear()
     .domain([0, 20000])
-    .range([ height_job, 0 ]);
-  svg_job.append("g")
+    .range([ height_job_main, 0 ]);
+  svg_job_main.append("g")
     .call(d3.axisLeft(y));
 
      var color = d3.scaleOrdinal()
@@ -51,7 +52,7 @@ var margin_job = {top: 0, right: -160, bottom: -30, left: 150},
     .keys(keys)
     (data)
 
-   svg_job
+   svg_job_main
     .selectAll("mylayers")
     .data(stackedData)
     .enter()
@@ -63,25 +64,11 @@ var margin_job = {top: 0, right: -160, bottom: -30, left: 150},
         .y1(function(d) { return y(d[1]); })
     )
 
-    //LEGEND
+    var job_legend_main = svg_job_main.append("g")
+    .attr("class", "job_legend_main")
+    .attr("transform", "translate(" + (width_job + 130) + ",100)");
 
-       svg_job
-    .selectAll("mylayers")
-    .data(stackedData)
-    .enter()
-    .append("path")
-      .style("fill", function(d) { console.log(d.key) ; return color(d.key); })
-      .attr("d", d3.area()
-        .x(function(d, i) { return x(d.data.SCORE); })
-        .y0(function(d) { return y(d[0]); })
-        .y1(function(d) { return y(d[1]); })
-    )
-
-      var job_legend = svg_job.append("g")
-    .attr("class", "job_legend")
-     .attr("transform", "translate(" + (width_job - 430) + ",0)");
-
-  job_legend.selectAll("g")
+  job_legend_main.selectAll("g")
     .data(keys)
     .enter()
     .append("g")
@@ -100,7 +87,6 @@ var margin_job = {top: 0, right: -160, bottom: -30, left: 150},
         .attr("font-family", "sans-serif")
         .attr("fill", "#333")
         .text(function(d) { return d; });
-        
     });
 
 }) 

@@ -1,29 +1,29 @@
-const social_tooltip = d3.select("#social_tooltip");
+const social_main_tooltip = d3.select("#social_main_tooltip");
 
-function showSocial_tooltip(event, html){
-    social_tooltip
+function showSocial_main_tooltip(event, html){
+    social_main_tooltip
         .style("opacity",1)
         .html(html)
         .style("left",(event.pageX+10)+"px")
         .style("top",(event.pageY-20)+"px");
 }
 
-function hideSocial_tooltip(){
-    social_tooltip.style("opacity",0);
+function hideSocial_main_tooltip(){
+    social_main_tooltip.style("opacity",0);
 }
 
-var margin_social = {top: 30, right: 30, bottom: 30, left: 0},
-    width_social = 400 - margin_social.left - margin_social.right,
-    height_social = 180 - margin_social.top - margin_social.bottom;
+var margin_social_main = {top: -30, right: 150, bottom: 130, left: -100},
+    width_social_main = 600 - margin_social_main.left - margin_social_main.right,
+    height_social_main = 600 - margin_social_main.top - margin_social_main.bottom;
 
 // append the svg object to the body of the page
-var svg_social = d3.select("#social_impact")
+var svg_social_main = d3.select("#social_main_impact")
   .append("svg")
-    .attr("width", width_social + margin_social.left + margin_social.right)
-    .attr("height", height_social + margin_social.top + margin_social.bottom)
+    .attr("width", width_social_main + margin_social_main.left + margin_social_main.right)
+    .attr("height", height_social_main + margin_social_main.top + margin_social_main.bottom)
   .append("g")
     .attr("transform",
-          "translate(" + margin_social.left + "," + margin_social.top + ")");
+          "translate(" + margin_social_main.left + "," + margin_social_main.top + ")");
 
 //Read the data
 d3.csv("data/SOCIAL_IMPACT2.csv", function(data) {
@@ -36,16 +36,16 @@ d3.csv("data/SOCIAL_IMPACT2.csv", function(data) {
   //X AXIS
   var x = d3.scaleLinear()
     .domain(d3.extent(data, function(d) { return d.SCORE; }))
-    .range([ 0, width_social ]);
-  svg_social.append("g")
-    .attr("transform", "translate(0," + height_social + ")")
+    .range([ 0, width_social_main ]);
+  svg_social_main.append("g")
+    .attr("transform", "translate(0," + height_social_main + ")")
     .call(d3.axisBottom(x).ticks(5));
 
   //Y AXIS
   var y = d3.scaleLinear()
     .domain([0, d3.max(data, function(d) { return +d.n; })])
-    .range([ height_social, 0 ]);
-  svg_social.append("g")
+    .range([ height_social_main, 0 ]);
+  svg_social_main.append("g")
     .call(d3.axisLeft(y));
 
   // color palette
@@ -55,7 +55,7 @@ d3.csv("data/SOCIAL_IMPACT2.csv", function(data) {
     .range(['#538cf4','#ed6051','#f8c954'])
 
   // Draw the line
-  svg_social.selectAll(".line")
+  svg_social_main.selectAll(".line")
       .data(sumstat)
       .enter()
       .append("path")
@@ -69,12 +69,11 @@ d3.csv("data/SOCIAL_IMPACT2.csv", function(data) {
             (d.values)
         })
 
-  // LEGEND
-  var social_legend = svg_social.append("g")
-    .attr("class", "social_legend")
-    .attr("transform", "translate(" + (width_social - 130) + ",-20)");
+          var social_legend_main = svg_social_main.append("g")
+    .attr("class", "social_legend_main")
+    .attr("transform", "translate(" + (width_social_main - 120) + ",90)");
 
-  social_legend.selectAll("g")
+  social_legend_main.selectAll("g")
     .data(res)
     .enter()
     .append("g")

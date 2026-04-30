@@ -4,7 +4,6 @@
 <meta charset="utf-8">
 <title>AI Impact</title>
 <script src="https://d3js.org/d3.v4.js"></script>
-<script src="animation.js"></script>
 <link rel="stylesheet" href="styles/styles.css">
 </head>
 
@@ -25,11 +24,13 @@
                             How can we can we use data to further explore these issues?
                     </p>
                 </div>
-                <div class="card"><svg id="social_impact"></svg></div>
-                <div class="card"><br><br><svg id="future_impact"></svg></div>
-                <div class="card"><svg id="job_capability" ></svg></div>
-        </div>
+                <div class="card"><h2>Social Impact</h2><svg id="social_impact"></svg></div>
+                <div class="card"><h2>Future Impact</h2><svg id="future_impact"></svg></div>
+                <div class="card"><h2>Job Capability</h2><svg id="job_capability" ></svg></div>
+            </div>
+            
     </div>
+    <p>Note: All categorical ordinal charts use a range of "Most Negative Impact" (minimum) to "Most Positive Impact" (maximum)</p>
 
     <div class="page3" id="three">
         <div class="container">
@@ -44,15 +45,22 @@
                         What inferences can you make about positive social inclinations? 
                         Conversely, what topics do individuals respond negatively to?
                 </p>
+                <p> Note: Answers are ranked as follows: <br>
+                1 = Extremely Likely to Increase <br>
+                2 = Very Likely to Improve Increase<br>
+                3 = Somewhat Likely to Increase<br>
+                4 = Not Too Likely to Improve Increase<br>
+                5 = Not at All Likely to Improve Increase<br>
+            </p>
             </div>
-            <div class = "card"><svg id="social_impact"></svg></div>
+            <div class = "card"><p>Social Impact</p><svg id="social_main_impact"></svg></div>
         </div>
     </div>
 
 <div class="page4" id="four">
     <div class="container">
         <div class="menu">
-            <div class="card"><svg id="job_capability"></svg></div>
+            <div class="card"><svg id="job_main_capability"></svg></div>
         </div>
         <div class="content" > 
             <p>_____________________________________</p> 
@@ -63,6 +71,11 @@
             <p>Draw comparisons between career fields. Why do inviduals favor human 
                     involvement more?
             </p>
+            <p> Note: Answers are ranked as follows: <br>
+                1 = AI Would Do This Better <br>
+                2 = AI Would Do This About The Same<br>
+                3 = AI Would Do This Worse<br>
+            </p>
         </div>
         </div>
 </div>
@@ -71,17 +84,17 @@
     <div class="container">
         <div class="header"><h1> Future Impact </h1></div>
         <div class="content">
-            <div class = "card"><svg id="future_impact"></svg></div>
+            <div class = "card"><svg id="future_main_impact"></svg></div>
         </div>
         
         <div class = "menu" >
+            <br><br><br><br><br><br><br><br><br>
             <p>
                 AI integration poses questions for evolution on a global scale.  </p> 
             <p>
                 As such, respondents were asked, “Thinking about the U.S. over the 
-                next 20 years, what impact do you think artificial intelligence (AI) will have?” with answers ranked on a scale of 1 - 6 (1 being 
-                extremely positive and 6 being extremely negative.)
-            </p>
+                next 20 years, what impact do you think artificial intelligence (AI) will have?” </p>
+                <p> Answers were then ranked on a scale of 1 - 6 (1 being extremely positive and 6 being extremely negative.)</p>
             <p>
                 Make sure to analyze means, quartiles, and potential outliers.
             </p>
@@ -124,3 +137,6 @@
 <script src="scripts/demographic.js"></script>
 <script src="scripts/future.js"></script>
 <script src="scripts/social.js"></script>
+<script src="scripts/socialMain.js"></script>
+<script src="scripts/jobMain.js"></script>
+<script src="scripts/futureMain.js"></script>

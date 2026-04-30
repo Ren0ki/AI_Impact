@@ -1,28 +1,28 @@
-  const future_tooltip = d3.select("#future_tooltip");
+  const future_main_tooltip = d3.select("#future_main_tooltip");
 
-function showFuture_tooltip(event, html){
-    future_tooltip
+function showFuture_main_tooltip(event, html){
+    future_main_tooltip
         .style("opacity",1)
         .html(html)
         .style("left",(event.pageX+10)+"px")
         .style("top",(event.pageY-20)+"px");
 }
 
-function hideFuture_tooltip(){
-    future_tooltip.style("opacity",0);
+function hideFuture_main_tooltip(){
+    future_main_tooltip.style("opacity",0);
 }
+  
+  var margin_future_main = {top: 30, right: 60, bottom: 30, left: -100},
+    width_future_main = 500 - margin_future_main.left - margin_future_main.right,
+    height_future_main = 500 - margin_future_main.top - margin_future_main.bottom;
 
-var margin_future = {top: -30, right: 60, bottom: 30, left: 0},
-    width_future = 400 - margin_future.left - margin_future.right,
-    height_future = 120 - margin_future.top - margin_future.bottom;
-
-    var svg_future = d3.select("#future_impact")
+    var svg_future_main = d3.select("#future_main_impact")
   .append("svg")
-    .attr("width", width_future + margin_future.left + margin_future.right)
-    .attr("height", height_future + margin_future.top + margin_future.bottom)
+    .attr("width", width_future_main + margin_future_main.left + margin_future_main.right)
+    .attr("height", height_future_main + margin_future_main.top + margin_future_main.bottom)
   .append("g")
     .attr("transform",
-          "translate(" + margin_future.left + "," + margin_future.top + ")");
+          "translate(" + margin_future_main.left + "," + margin_future_main.top + ")");
 
   d3.csv("../data/FUTURE_IMPACT.csv", function(data) {      
     
@@ -41,27 +41,26 @@ var margin_future = {top: -30, right: 60, bottom: 30, left: 0},
 
     //X AXIS
     var x = d3.scaleBand()
-    .range([ 0, width_future ])
+    .range([ 0, width_future_main ])
     .domain(["MEDICAL", "EDUCATION", "ELECTIONS", "ECONOMY", "CRIMINAL JUSTICE", "ARTS ENTERTAINMENT", "RELATIONSHIPS", "JOBS", "ENVIRONMENT", "NEWS"])
     .paddingInner(1)
     .paddingOuter(.5)
-  svg_future.append("g")
-    .attr("transform", "translate(0," + height_future + ")")
+  svg_future_main.append("g")
+    .attr("transform", "translate(0," + height_future_main + ")")
     .call(d3.axisBottom(x))
     .selectAll("text")
     .attr("transform", "rotate(-45)")
     .style("text-anchor", "end");
 
-
     //Y AXIS
      var y = d3.scaleLinear()
     .domain([0,7])
-    .range([height_future, 0])
-  svg_future.append("g").call(d3.axisLeft(y))
+    .range([height_future_main, 0])
+  svg_future_main.append("g").call(d3.axisLeft(y))
 
   // rectangle for the main box
-  var boxWidth = 20
-  svg_future
+  var boxWidth = 40
+  svg_future_main
     .selectAll("boxes")
     .data(sumstat)
     .enter()
@@ -74,7 +73,7 @@ var margin_future = {top: -30, right: 60, bottom: 30, left: 0},
         .style("fill", "#69b3a2")
 
   // Show the median
-  svg_future
+  svg_future_main
     .selectAll("medianLines")
     .data(sumstat)
     .enter()
