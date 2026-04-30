@@ -24,7 +24,7 @@ function hideFuture_main_tooltip(){
     .attr("transform",
           "translate(" + margin_future_main.left + "," + margin_future_main.top + ")");
 
-  d3.csv("https://raw.githubusercontent.com/Ren0ki/AI_IMPACT/main/data/FUTURE_IMPACT.csv", function(data) {      
+  d3.csv("../data/FUTURE_IMPACT.csv", function(data) {      
     
     var sumstat = d3.nest() 
     .key(function(d) { return d.CATEGORY;})

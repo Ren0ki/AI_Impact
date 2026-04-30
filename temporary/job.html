@@ -1,5 +1,5 @@
 <!-- Code from d3-graph-gallery.com -->
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <meta charset="utf-8">
 
 <!-- Load d3.js -->
@@ -42,11 +42,11 @@
     .call(d3.axisLeft(y));
 
     //SCOLORS
-     var color = d3.scaleOrdinal()
+  var color = d3.scaleOrdinal()
     .domain(keys)
     .range(['#e41a1c','#377eb8','#4daf4a','#984ea3','#ff7f00','#ffff33','#a65628','#f781bf'])
 
-    var stackedData = d3.stack()
+  var stackedData = d3.stack()
     .keys(keys)
     (data)
 

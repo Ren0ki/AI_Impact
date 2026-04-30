@@ -1,17 +1,3 @@
-const job_tooltip = d3.select("#job_tooltip");
-
-function showJob_tooltip(event, html){
-    job_tooltip
-        .style("opacity",1)
-        .html(html)
-        .style("left",(event.pageX+10)+"px")
-        .style("top",(event.pageY-20)+"px");
-}
-
-function hideJob_tooltip(){
-    job_tooltip.style("opacity",0);
-}
-
 var margin_job = {top: 0, right: -160, bottom: -30, left: 150},
     width_job = 200 - margin_job.left - margin_job.right,
     height_job = 130 - margin_job.top - margin_job.bottom;
