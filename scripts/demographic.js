@@ -1,6 +1,6 @@
 var margin_demographic = {top: 50, right: 300, bottom: 130, left: 0},
     width_demographic = 700 - margin_demographic.left - margin_demographic.right,
-    height_demographic = 500 - margin_demographic.top - margin_demographic.bottom;
+    height_demographic = 450 - margin_demographic.top - margin_demographic.bottom;
 
 var svg_demographic = d3.select("#demographic")
   .append("svg")
@@ -23,7 +23,10 @@ d3.csv("data/DEMOGRAPHIC_CONSIDERATION.csv", function(data) {
       .padding([0.2])
   svg_demographic.append("g")
     .attr("transform", "translate(0," + height_demographic + ")")
-    .call(d3.axisBottom(x).tickSizeOuter(0));
+    .call(d3.axisBottom(x).tickSizeOuter(0))
+     .selectAll("text")
+    .attr("transform", "rotate(-45)")
+    .style("text-anchor", "end");
 
     //Y AXIS
   var y = d3.scaleLinear()

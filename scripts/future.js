@@ -71,7 +71,7 @@ var margin_future = {top: -30, right: 60, bottom: 30, left: 0},
         .attr("height", function(d){return(y(d.value.q1)-y(d.value.q3))})
         .attr("width", boxWidth )
         .attr("stroke", "black")
-        .style("fill", "#69b3a2")
+        .style("fill", "#f8c954")
 
   // Show the median
   svg_future
