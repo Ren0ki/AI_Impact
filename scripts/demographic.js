@@ -1,14 +1,14 @@
-var margin = {top: 10, right: 30, bottom: 20, left: 50},
-    width = 460 - margin.left - margin.right,
-    height = 400 - margin.top - margin.bottom;
+var margin_demographic = {top: 10, right: 30, bottom: 20, left: 50},
+    width_demographic = 560 - margin_demographic.left - margin_demographic.right,
+    height_demographic = 200 - margin_demographic.top - margin_demographic.bottom;
 
 var svg_demographic = d3.select("#demographic")
   .append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
+    .attr("width", width_demographic + margin_demographic.left + margin_demographic.right)
+    .attr("height", height_demographic + margin_demographic.top + margin_demographic.bottom)
   .append("g")
     .attr("transform",
-          "translate(" + margin.left + "," + margin.top + ")");
+          "translate(" + margin_demographic.left + "," + margin_demographic.top + ")");
           
 // Parse the Data
 d3.csv("data/DEMOGRAPHIC_CONSIDERATION.csv", function(data) {
@@ -19,16 +19,16 @@ d3.csv("data/DEMOGRAPHIC_CONSIDERATION.csv", function(data) {
 //X AXIS
  var x = d3.scaleBand()
       .domain(groups)
-      .range([0, width])
+      .range([0, width_demographic])
       .padding([0.2])
   svg_demographic.append("g")
-    .attr("transform", "translate(0," + height + ")")
+    .attr("transform", "translate(0," + height_demographic + ")")
     .call(d3.axisBottom(x).tickSizeOuter(0));
 
     //Y AXIS
   var y = d3.scaleLinear()
     .domain([0, 25000])
-    .range([ height, 0 ]);
+    .range([ height_demographic, 0 ]);
   svg_demographic.append("g")
     .call(d3.axisLeft(y));
   var color = d3.scaleOrdinal()

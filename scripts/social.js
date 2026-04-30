@@ -1,15 +1,15 @@
-var margin = {top: 10, right: 30, bottom: 30, left: 60},
-    width = 460 - margin.left - margin.right,
-    height = 400 - margin.top - margin.bottom;
+var margin_social = {top: 30, right: 30, bottom: 30, left: 0},
+    width_social = 400 - margin_social.left - margin_social.right,
+    height_social = 300 - margin_social.top - margin_social.bottom;
 
 // append the svg object to the body of the page
 var svg_social = d3.select("#social_impact")
   .append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
+    .attr("width", width_social + margin_social.left + margin_social.right)
+    .attr("height", height_social + margin_social.top + margin_social.bottom)
   .append("g")
     .attr("transform",
-          "translate(" + margin.left + "," + margin.top + ")");
+          "translate(" + margin_social.left + "," + margin_social.top + ")");
 
 //Read the data
 d3.csv("data/SOCIAL_IMPACT2.csv", function(data) {
@@ -22,15 +22,15 @@ d3.csv("data/SOCIAL_IMPACT2.csv", function(data) {
   //X AXIS
   var x = d3.scaleLinear()
     .domain(d3.extent(data, function(d) { return d.SCORE; }))
-    .range([ 0, width ]);
+    .range([ 0, width_social ]);
   svg_social.append("g")
-    .attr("transform", "translate(0," + height + ")")
+    .attr("transform", "translate(0," + height_social + ")")
     .call(d3.axisBottom(x).ticks(5));
 
   //Y AXIS
   var y = d3.scaleLinear()
     .domain([0, d3.max(data, function(d) { return +d.n; })])
-    .range([ height, 0 ]);
+    .range([ height_social, 0 ]);
   svg_social.append("g")
     .call(d3.axisLeft(y));
 

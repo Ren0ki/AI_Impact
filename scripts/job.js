@@ -1,14 +1,14 @@
-var margin = {top: 10, right: 30, bottom: 10, left: 60},
-    width = 500 - margin.left - margin.right,
-    height = 180 - margin.top - margin.bottom;
+var margin_job = {top: 45, right: 30, bottom: 10, left: 0},
+    width_job = 400 - margin_job.left - margin_job.right,
+    height_job = 250 - margin_job.top - margin_job.bottom;
 
   var svg_job = d3.select("#job_capability")
   .append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
+    .attr("width", width_job + margin_job.left + margin_job.right)
+    .attr("height", height_job + margin_job.top + margin_job.bottom)
   .append("g")
     .attr("transform",
-          "translate(" + margin.left + "," + margin.top + ")");
+          "translate(" + margin_job.left + "," + margin_job.top + ")");
 
     d3.csv("data/JOB_CAPABILITY.csv", function(data) {
 
@@ -17,15 +17,15 @@ var margin = {top: 10, right: 30, bottom: 10, left: 60},
   //X AXIS
    var x = d3.scaleLinear()
     .domain(d3.extent(data, function(d) { return d.SCORE; }))
-    .range([ 0, width ]);
+    .range([ 0, width_job ]);
   svg_job.append("g")
-    .attr("transform", "translate(0," + height + ")")
+    .attr("transform", "translate(0," + height_job + ")")
     .call(d3.axisBottom(x).ticks(2));
 
     //Y AXIS
      var y = d3.scaleLinear()
     .domain([0, 20000])
-    .range([ height, 0 ]);
+    .range([ height_job, 0 ]);
   svg_job.append("g")
     .call(d3.axisLeft(y));
 
