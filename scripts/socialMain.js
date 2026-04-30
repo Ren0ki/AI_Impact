@@ -1,17 +1,3 @@
-const social_main_tooltip = d3.select("#social_main_tooltip");
-
-function showSocial_main_tooltip(event, html){
-    social_main_tooltip
-        .style("opacity",1)
-        .html(html)
-        .style("left",(event.pageX+10)+"px")
-        .style("top",(event.pageY-20)+"px");
-}
-
-function hideSocial_main_tooltip(){
-    social_main_tooltip.style("opacity",0);
-}
-
 var margin_social_main = {top: -30, right: 150, bottom: 130, left: -100},
     width_social_main = 600 - margin_social_main.left - margin_social_main.right,
     height_social_main = 600 - margin_social_main.top - margin_social_main.bottom;
