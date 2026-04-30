@@ -1,0 +1,245 @@
+    h1{
+         font-size: 100px;
+            font-family: arial-narrow, sans-serif;
+    }
+
+    h2{
+        font-size: 40px;
+            font-family: arial-narrow, sans-serif;
+    }
+
+    p{
+        font-family: arial-narrow, sans-serif;
+        font-size: 20px;
+        text-align: left;
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+
+.card{
+        box-shadow: 0 4px 8px 0 black ;
+        text-align: center;
+        margin-bottom:  50px;
+
+        border-radius: 12px;
+        background-color:  white;
+        width: 750px;
+        height: 450px;
+        margin: 50px;
+}
+
+.page1{
+        background: url("../assets/bg.png");
+        background-repeat: no-repeat;
+        background-size: 1080px;
+        background-position: center;  
+
+        display:flex;
+        flex-direction:column;
+        align-items : center;
+        justify-content:center;
+        align-items: center;
+        height: 1000px;
+
+        h1{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+    }
+
+    .page2{
+      
+         justify-content:center;
+        align-items: center;
+        display: flex;
+
+        .container {
+        display: grid;
+        grid-template-columns: auto auto ;
+        padding: 10px;
+}
+    .container {
+        display: grid;
+        grid-template-columns: auto auto ;
+        padding: 10px;
+}
+        .container div {
+        padding: 10px;
+        font-size: 30px;
+        text-align: center;
+}
+
+.card{
+    background-color: #f2f0e9;
+    width: 500px;
+    height: 300px;
+}
+
+    }
+
+.page3{
+
+    background-color: black;
+    height: 1000px;
+    color: white;
+
+      justify-content:center;
+        align-items: center;
+        display: flex;
+
+        h1{
+            text-align: left;
+        }
+
+    .container div {
+        padding: 10px;
+        font-size: 30px;
+        text-align: center;
+        margin-top: 33%;
+}
+
+    .container {
+        margin-left: 10%;
+        justify-content:center;
+        align-items: center;
+        display: flex;
+        display: grid;
+        grid-template-areas: menu content ;
+        grid-template-columns: 1fr 2fr;
+        gap: 10%;
+        padding: 10px;
+}
+
+}
+
+.page4{
+
+ height: 1000px;
+    color: black;
+      justify-content:center;
+        align-items: center;
+        display: flex;
+
+.container {
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "menu content"
+    "footer footer";
+  grid-template-columns: 3fr 2fr;
+  gap: 3px;
+
+}
+
+.container div.header {
+  grid-area: header;
+  text-align: center;
+}
+
+.container div.menu {
+  grid-area: menu;
+  padding-left: 10%;
+}
+.container div.content {
+  grid-area: content;
+  padding-right: 10%;
+  background-color: #c6d5fb;
+}
+
+.content{
+    padding: 10%;
+    margin-right: 10%;
+}
+
+}
+.page5{
+
+    background-color: #214281;
+    height: 1000px;
+    color: white;
+    justify-content:center;
+    align-items: center;
+    display: flex;
+
+.container {
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "menu content"
+    "footer footer";
+  grid-template-columns: 2fr 3fr;
+  gap: 3px;
+
+}
+
+.container div.header {
+  grid-area: header;
+  text-align: center;
+}
+
+.container div.menu {
+  grid-area: menu;
+  padding-left: 40%;
+}
+.container div.content {
+  grid-area: content;
+  padding-left: 10%;
+}
+
+}
+
+.page6{
+    height: 1000px;
+    color: black;
+    justify-content:center;
+    align-items: center;
+    display: flex;
+
+.container {
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "menu content"
+    "footer footer";
+  grid-template-columns: 2fr 2fr;
+  gap: 3px;
+
+}
+
+.container div.menu {
+  grid-area: menu;
+  padding-left: 10%;
+}
+.container div.content {
+  grid-area: content;
+  padding-left: 10%;
+  padding-top: 10%;
+}
+
+}
+
+button{
+    background-color:  black;
+    color: white;
+    display: inline-block;
+    text-align: center;
+    font-size: 16px;
+}
+
+/* <!--
+Source - https://stackoverflow.com/a/8841914
+Posted by Diodeus - James MacFarlane
+Retrieved 2026-04-29, License - CC BY-SA 3.0
+--> */
+
+#wrapper {
+    margin-left:auto;
+    margin-right:auto;
+    width:1800;
+}
+
+html{
+    scroll-behavior: smooth;
+}

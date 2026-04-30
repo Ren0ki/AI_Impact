@@ -10,6 +10,10 @@
 
 <script>
 
+var margin = {top: 10, right: 30, bottom: 20, left: 50},
+    width = 460 - margin.left - margin.right,
+    height = 400 - margin.top - margin.bottom;
+
 var svg = d3.select("#demographic")
   .append("svg")
     .attr("width", width + margin.left + margin.right)
@@ -17,13 +21,15 @@ var svg = d3.select("#demographic")
   .append("g")
     .attr("transform",
           "translate(" + margin.left + "," + margin.top + ")");
+          
+// Parse the Data
+d3.csv("../data/DEMOGRAPHIC_CONSIDERATION.csv", function(data) {
 
-    d3.csv("DEMOGRAPHIC_CONSIDERATION.csv", function(data) {
+ var subgroups = data.columns.slice(1)
+ var groups = d3.map(data, function(d){return(d.SCORE)}).keys()
 
-   var groups = d3.map(data, function(d){return(d.SCORE)}).keys()
-
-  //X AXIS
-   var x = d3.scaleBand()
+//X AXIS
+ var x = d3.scaleBand()
       .domain(groups)
       .range([0, width])
       .padding([0.2])
@@ -32,21 +38,20 @@ var svg = d3.select("#demographic")
     .call(d3.axisBottom(x).tickSizeOuter(0));
 
     //Y AXIS
-    var y = d3.scaleLinear()
-    .domain([0, 60])
+  var y = d3.scaleLinear()
+    .domain([0, 25000])
     .range([ height, 0 ]);
   svg.append("g")
     .call(d3.axisLeft(y));
-
-     var color = d3.scaleOrdinal()
+  var color = d3.scaleOrdinal()
     .domain(subgroups)
-    .range(['#e41a1c','#377eb8','#4daf4a','#984ea3','#ff7f00','#ffff33','#a65628','#f781bf'])
+    .range(['#e41a1c','#377eb8','#4daf4a'])
 
-      var stackedData = d3.stack()
+    var stackedData = d3.stack()
     .keys(subgroups)
     (data)
-
-    svg.append("g")
+    
+      svg.append("g")
     .selectAll("g")
     .data(stackedData)
     .enter().append("g")
@@ -59,4 +64,5 @@ var svg = d3.select("#demographic")
         .attr("height", function(d) { return y(d[0]) - y(d[1]); })
         .attr("width",x.bandwidth())
 })
-</script>
+
+ </script>

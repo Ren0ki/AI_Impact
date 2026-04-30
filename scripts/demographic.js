@@ -1,28 +1,17 @@
-<!-- Code from d3-graph-gallery.com -->
-<!DOCTYPE html>
-<meta charset="utf-8">
-
-<!-- Load d3.js -->
-<script src="https://d3js.org/d3.v4.js"></script>
-
-<!-- Create a div where the graph will take place -->
-<div id="demographic"></div>
-
-<script>
-
 var margin = {top: 10, right: 30, bottom: 20, left: 50},
     width = 460 - margin.left - margin.right,
     height = 400 - margin.top - margin.bottom;
 
-var svg = d3.select("#demographic")
+var svg_demographic = d3.select("#demographic")
   .append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
   .append("g")
     .attr("transform",
           "translate(" + margin.left + "," + margin.top + ")");
+          
 // Parse the Data
-d3.csv("DEMOGRAPHIC_CONSIDERATION.csv", function(data) {
+d3.csv("data/DEMOGRAPHIC_CONSIDERATION.csv", function(data) {
 
  var subgroups = data.columns.slice(1)
  var groups = d3.map(data, function(d){return(d.SCORE)}).keys()
@@ -32,7 +21,7 @@ d3.csv("DEMOGRAPHIC_CONSIDERATION.csv", function(data) {
       .domain(groups)
       .range([0, width])
       .padding([0.2])
-  svg.append("g")
+  svg_demographic.append("g")
     .attr("transform", "translate(0," + height + ")")
     .call(d3.axisBottom(x).tickSizeOuter(0));
 
@@ -40,7 +29,7 @@ d3.csv("DEMOGRAPHIC_CONSIDERATION.csv", function(data) {
   var y = d3.scaleLinear()
     .domain([0, 25000])
     .range([ height, 0 ]);
-  svg.append("g")
+  svg_demographic.append("g")
     .call(d3.axisLeft(y));
   var color = d3.scaleOrdinal()
     .domain(subgroups)
@@ -50,14 +39,12 @@ d3.csv("DEMOGRAPHIC_CONSIDERATION.csv", function(data) {
     .keys(subgroups)
     (data)
     
-      svg.append("g")
+      svg_demographic.append("g")
     .selectAll("g")
-    // Enter in the stack data = loop key per key = group per group
     .data(stackedData)
     .enter().append("g")
       .attr("fill", function(d) { return color(d.key); })
       .selectAll("rect")
-      // enter a second time = loop subgroup per subgroup to add all rectangles
       .data(function(d) { return d; })
       .enter().append("rect")
         .attr("x", function(d) { return x(d.data.SCORE); })
@@ -65,5 +52,3 @@ d3.csv("DEMOGRAPHIC_CONSIDERATION.csv", function(data) {
         .attr("height", function(d) { return y(d[0]) - y(d[1]); })
         .attr("width",x.bandwidth())
 })
-
- </script>

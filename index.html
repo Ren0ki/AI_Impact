@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>AI Impact</title>
+<script src="https://d3js.org/d3.v4.js"></script>
+<script src="animation.js"></script>
+<link rel="stylesheet" href="styles/styles.css">
+</head>
+
+<br/>
+
+<div id="wrapper">
+
+    <div class="page1">
+        <h1> Modern Trends in <br> AI Impact</h1>
+        <p><button onclick="window.location.href='#targetDiv'">HOVER OVER EACH GRAPH TO LEARN MORE</button></p>
+    </div>
+
+    <div class="page2" id="targetDiv">
+        <div class="container">
+                <div class="card">
+                    <h2>Demographic Consideration</h2>
+                    <p>Experiences with AI point towards biases against minority populations? 
+                            How can we can we use data to further explore these issues?
+                    </p>
+                </div>
+                <div class="card"><svg id="social_impact"></svg></div>
+                <div class="card"><svg id="future_impact"></svg></div>
+                <div class="card"><svg id="job_capability" width="600px" ></svg></div>
+        </div>
+    </div>
+
+    <div class="page3" id="three">
+        <div class="container">
+            <div>
+                <h1>Social Impact</h1>
+                <p>Despite increasing AI usage, many individuals do not believe 
+                        that AI will have long term social benefits.  Rather, they show 
+                        more concern for the likelihood of damage caused by these 
+                        technologies.
+                </p>
+                <p>
+                        What inferences can you make about positive social inclinations? 
+                        Conversely, what topics do individuals respond negatively to?
+                </p>
+            </div>
+            <div class = "card"><svg id="social_impact"></svg></div>
+        </div>
+    </div>
+
+<div class="page4" id="four">
+    <div class="container">
+        <div class="menu">
+            <div class="card"><svg id="job_capability"></svg></div>
+        </div>
+        <div class="content" > 
+            <p>_____________________________________</p> 
+            <h1>Job Capability</h1>
+            <p>Job stability is a rising concern regarding AI involvement. How will 
+                    generative technology affect different career fields?
+            </p>
+            <p>Draw comparisons between career fields. Why do inviduals favor human 
+                    involvement more?
+            </p>
+        </div>
+        </div>
+</div>
+
+<div class = "page5" id="five">
+    <div class="container">
+        <div class="header"><h1> Future Impact </h1></div>
+        <div class="content">
+            <div class = "card"><svg id="future_impact"></svg></div>
+        </div>
+        
+        <div class = "menu" >
+            <p>
+                AI integration poses questions for evolution on a global scale.  </p> 
+            <p>
+                As such, respondents were asked, “Thinking about the U.S. over the 
+                next 20 years, what impact do you think artificial intelligence (AI) will have?” with answers ranked on a scale of 1 - 6 (1 being 
+                extremely positive and 6 being extremely negative.)
+            </p>
+            <p>
+                Make sure to analyze means, quartiles, and potential outliers.
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="page6">
+    <div class="container">
+        <div class="menu">
+            <h1>Demographic Consideration</h1>
+            <p>What biases do AI platforms possess? Who is most impacted?</p>
+            <div class = "card"><svg id="demographic"></svg></div>
+        </div>
+    <div class = "content">
+        <h2>Highest and Lowest Biases for Sex</h2>
+        <p>
+            Based on user experience, AI developers are believed to account for 
+            men’s perspectives over women’s perspectives.  
+        </p>
+        <p>__________________________________________________________</p> 
+        <h2> Highest and Lowest Biases for Race</h2>
+            <p>
+                    Meanwhile, AI developers are believed to account for white adults’ perspectives over those of other races. Consequently, Black adults' 
+                    perspectives are least accounted for. 
+            </p>
+            <p>__________________________________________________________</p> 
+            <h2>Significance</h2>
+            <p>
+                    These experiences highlight significant issues in AI development and training. Failing to correct these biases can limit how minority communities 
+                    are seen and represented by generative technology.
+            </p>
+            <p>__________________________________________________________</p> 
+        </div>
+    </div>
+</div>
+</div>
+
+<script src="scripts/job.js"></script>
+<script src="scripts/demographic.js"></script>
+<script src="scripts/future.js"></script>
+<script src="scripts/social.js"></script>

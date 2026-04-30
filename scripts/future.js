@@ -1,19 +1,8 @@
-<!-- Code from d3-graph-gallery.com -->
-<!DOCTYPE html>
-<meta charset="utf-8">
-
-<!-- Load d3.js -->
-<script src="https://d3js.org/d3.v4.js"></script>
-
-<!-- Create a div where the graph will take place -->
-<div id="future_impact"></div>
-
-<script>
-    var margin = {top: 10, right: 30, bottom: 30, left: 40},
+  var margin = {top: 10, right: 30, bottom: 30, left: 40},
     width = 600 - margin.left - margin.right,
     height = 400 - margin.top - margin.bottom;
 
-    var svg = d3.select("#future_impact")
+    var svg_future = d3.select("#future_impact")
   .append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
@@ -21,9 +10,9 @@
     .attr("transform",
           "translate(" + margin.left + "," + margin.top + ")");
 
-  d3.csv("FUTURE_IMPACT.csv", function(data) {      
+  d3.csv("../data/FUTURE_IMPACT.csv", function(data) {      
     
-    var sumstat = d3.nest() // nest function allows to group the calculation per level of a factor
+    var sumstat = d3.nest() 
     .key(function(d) { return d.CATEGORY;})
     .rollup(function(d) {
       q1 = d3.quantile(d.map(function(g) { return g.SCORE;}).sort(d3.ascending),.25)
@@ -42,7 +31,7 @@
     .domain(["MEDICAL", "EDUCATION", "ELECTIONS", "ECONOMY", "CRIMINAL JUSTICE", "ARTS ENTERTAINMENT", "RELATIONSHIPS", "JOBS", "ENVIRONMENT", "NEWS"])
     .paddingInner(1)
     .paddingOuter(.5)
-  svg.append("g")
+  svg_future.append("g")
     .attr("transform", "translate(0," + height + ")")
     .call(d3.axisBottom(x))
 
@@ -50,9 +39,9 @@
      var y = d3.scaleLinear()
     .domain([0,7])
     .range([height, 0])
-  svg.append("g").call(d3.axisLeft(y))
+  svg_future.append("g").call(d3.axisLeft(y))
 
-  svg
+  svg_future
     .selectAll("vertLines")
     .data(sumstat)
     .enter()
@@ -66,7 +55,7 @@
 
         // rectangle for the main box
   var boxWidth = 30
-  svg
+  svg_future
     .selectAll("boxes")
     .data(sumstat)
     .enter()
@@ -79,7 +68,7 @@
         .style("fill", "#69b3a2")
 
   // Show the median
-  svg
+  svg_future
     .selectAll("medianLines")
     .data(sumstat)
     .enter()
@@ -92,5 +81,3 @@
       .style("width", 80)
 
 })
-
-</script>

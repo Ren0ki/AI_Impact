@@ -9,29 +9,34 @@
 <div id="social_impact"></div>
 
 <script>
+
+// set the dimensions and margins of the graph
 var margin = {top: 10, right: 30, bottom: 30, left: 60},
     width = 460 - margin.left - margin.right,
     height = 400 - margin.top - margin.bottom;
 
-    var svg = d3.select("#social_impact")
-    .append("svg")
+// append the svg object to the body of the page
+var svg = d3.select("#social_impact")
+  .append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
-    .append("g")
-    .attr("transform", 
-            "translate(" + margin.left + "," + margin.top + ")");
+  .append("g")
+    .attr("transform",
+          "translate(" + margin.left + "," + margin.top + ")");
 
-d3.csv("https://raw.githubusercontent.com/Ren0ki/AI_Impact/main/SOCIAL_IMPACT.csv", function(data) {
+//Read the data
+d3.csv("data/SOCIAL_IMPACT2.csv", function(data) {
 
-  var sumstat = d3.nest()
+  //GROUPED DATA
+  var sumstat = d3.nest() 
     .key(function(d) { return d.CATEGORY;})
     .entries(data);
 
-    //X AXIS
-    var x = d3.scaleLinear()
-    .domain(d3.extent(data, function(d) { return +d.SCORE; }))
-    .range([0, width]);
-    svg.append("g")
+  //X AXIS
+  var x = d3.scaleLinear()
+    .domain(d3.extent(data, function(d) { return d.SCORE; }))
+    .range([ 0, width ]);
+  svg.append("g")
     .attr("transform", "translate(0," + height + ")")
     .call(d3.axisBottom(x).ticks(5));
 
@@ -42,11 +47,13 @@ d3.csv("https://raw.githubusercontent.com/Ren0ki/AI_Impact/main/SOCIAL_IMPACT.cs
   svg.append("g")
     .call(d3.axisLeft(y));
 
-  var res = sumstat.map(function(d){ return d.key })
+  // color palette
+  var res = sumstat.map(function(d){ return d.key }) // list of group names
   var color = d3.scaleOrdinal()
     .domain(res)
     .range(['#e41a1c','#377eb8','#4daf4a','#984ea3','#ff7f00','#ffff33','#a65628','#f781bf','#999999'])
 
+  // Draw the line
   svg.selectAll(".line")
       .data(sumstat)
       .enter()
@@ -62,5 +69,6 @@ d3.csv("https://raw.githubusercontent.com/Ren0ki/AI_Impact/main/SOCIAL_IMPACT.cs
         })
 
 })
+
 
 </script>
