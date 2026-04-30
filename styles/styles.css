@@ -243,3 +243,7 @@ Retrieved 2026-04-29, License - CC BY-SA 3.0
 html{
     scroll-behavior: smooth;
 }
+
+svg{
+  overflow: visible;
+}

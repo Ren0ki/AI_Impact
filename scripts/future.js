@@ -1,5 +1,5 @@
   var margin = {top: 10, right: 30, bottom: 30, left: 40},
-    width = 600 - margin.left - margin.right,
+    width = 200 - margin.left - margin.right,
     height = 400 - margin.top - margin.bottom;
 
     var svg_future = d3.select("#future_impact")
