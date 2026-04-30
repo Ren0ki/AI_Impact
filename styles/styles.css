@@ -257,11 +257,16 @@ Retrieved 2026-04-29, License - CC BY-SA 3.0
     margin-right:auto;
     width:1800;
 }
-/* 
+
 html{
     scroll-behavior: smooth;
-} */
+}
 
 svg{
   overflow: visible;
+}
+
+.tooltip {
+  position: absolute;
+  pointer-events: none;
 }
